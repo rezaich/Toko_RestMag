@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
+        android:id="@+id/menuHome"
+        android:title="Home"
+        android:icon="@drawable/ic_home"/>
+
+    <item
         android:id="@+id/userManagement"
         android:title="User Management"
         android:icon="@drawable/ic_user"/>
 
     <item
-        android:id="@+id/menuHome"
-        android:title="Home"
-        android:icon="@drawable/ic_home"/>
+        android:id="@+id/tableManagement"
+        android:title="Table Management"
+        android:icon="@drawable/ic_table"/>
+
 </menu>

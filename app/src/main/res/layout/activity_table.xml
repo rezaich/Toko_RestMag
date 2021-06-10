@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TableActivity">
+
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabMode="fixed">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/regTable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="regist" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/listTable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Table" />
+
+    </com.google.android.material.tabs.TabLayout>
+
+
+</LinearLayout>
