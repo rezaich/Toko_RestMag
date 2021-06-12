@@ -21,7 +21,7 @@
         android:id="@+id/llogin"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:translationY="60dp"
+        android:translationY="30dp"
         android:orientation="vertical">
 
         <androidx.cardview.widget.CardView

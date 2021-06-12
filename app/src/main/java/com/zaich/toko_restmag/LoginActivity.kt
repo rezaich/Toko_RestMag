@@ -14,6 +14,9 @@ class LoginActivity : AppCompatActivity() {
         btnLogin.setOnClickListener {
             startActivity(intent)
         }
+        crAccount.setOnClickListener {
+            startActivity(Intent(application,RegisterActivity::class.java))
+        }
     }
 
 }

@@ -4,10 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/activity_user"
     android:orientation="vertical"
     tools:context=".UserActivity">
 
     <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabMode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tabMode="fixed">
@@ -23,5 +25,11 @@
             android:text="User" />
 
     </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
 
 </LinearLayout>
