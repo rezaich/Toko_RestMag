@@ -28,7 +28,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
         //call findByid on the drawerLayout
-        drawerLayout = findViewById(R.id.activity_main)
+        drawerLayout = findViewById(R.id.activity_home)
 
         //pass the actionToggle action into the drawerlistener
         actionBarToggle = ActionBarDrawerToggle(this, drawerLayout, 0, 0)
