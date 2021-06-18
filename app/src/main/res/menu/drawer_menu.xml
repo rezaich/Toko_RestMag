@@ -10,9 +10,4 @@
         android:title="User Management"
         android:icon="@drawable/ic_user"/>
 
-    <item
-        android:id="@+id/tableManagement"
-        android:title="Table Management"
-        android:icon="@drawable/ic_table"/>
-
 </menu>
