@@ -5,11 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".Home">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/barchart"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="HOME"
-        android:textSize="40dp"/>
+        android:layout_height="match_parent"/>
 
 </FrameLayout>

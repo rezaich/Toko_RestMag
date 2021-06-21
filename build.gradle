@@ -20,6 +20,10 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+
+        //bar chart
+        maven{ url "https://jitpack.io"}
+
         jcenter() // Warning: this repository is going to shut down soon
 
     }
