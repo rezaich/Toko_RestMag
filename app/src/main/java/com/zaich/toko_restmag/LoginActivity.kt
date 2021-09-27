@@ -7,27 +7,30 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_login.*
+import com.zaich.toko_restmag.databinding.ActivityLoginBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class LoginActivity : AppCompatActivity() {
+    private lateinit var binding : ActivityLoginBinding
     lateinit var sharePref : SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        btnLogin.setOnClickListener {
-            LoginRecord()
+        binding.btnLogin.setOnClickListener {
+//            LoginRecord()
+            startActivity(Intent(this,MainActivity::class.java))
         }
-        crAccount.setOnClickListener {
+        binding.crAccount.setOnClickListener {
             startActivity(Intent(application,RegisterActivity::class.java))
         }
     }
     fun LoginRecord(){
-        val user_name = etUserName.text.toString()
-        val password = etpassword.text.toString()
+        val user_name = binding.etUserName.text.toString()
+        val password = binding.etpassword.text.toString()
 
         if( user_name == "" || password == "" ){
             Toast.makeText(this, "Masih ada field yang kosong", Toast.LENGTH_LONG).show()
