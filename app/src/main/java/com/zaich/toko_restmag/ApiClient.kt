@@ -1,4 +1,4 @@
-package com.zaich.toko_restmag.API
+package com.zaich.toko_restmag
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

@@ -10,8 +10,8 @@ android {
 
     defaultConfig {
         applicationId "com.zaich.toko_restmag"
-        minSdkVersion 20
-        targetSdkVersion 30
+        minSdkVersion 21
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
