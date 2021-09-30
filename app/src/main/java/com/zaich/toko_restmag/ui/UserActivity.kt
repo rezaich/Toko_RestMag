@@ -1,12 +1,12 @@
-package com.zaich.toko_restmag
+package com.zaich.toko_restmag.ui
 
-import android.content.Intent
-import android.os.Binder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
+import com.zaich.toko_restmag.CreateUser
+import com.zaich.toko_restmag.ListUser
 import com.zaich.toko_restmag.databinding.ActivityUserBinding
 
 class UserActivity : AppCompatActivity() {

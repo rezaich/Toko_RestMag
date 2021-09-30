@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/activity_user"
     android:orientation="vertical"
-    tools:context=".UserActivity">
+    tools:context=".ui.UserActivity">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabMode"

@@ -1,4 +1,4 @@
-package com.zaich.toko_restmag
+package com.zaich.toko_restmag.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +9,9 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import com.zaich.toko_restmag.Akun
+import com.zaich.toko_restmag.Home
+import com.zaich.toko_restmag.R
 
 class MainActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
@@ -45,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         navDrawerView.setNavigationItemSelectedListener { menuitem ->
             when (menuitem.itemId) {
                 R.id.menuHome -> {
-                    startActivity(Intent(application,MainActivity::class.java))
+                    startActivity(Intent(application, MainActivity::class.java))
                     true
                 }
                 R.id.userManagement -> {

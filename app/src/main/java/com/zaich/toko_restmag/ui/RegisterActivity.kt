@@ -1,4 +1,4 @@
-package com.zaich.toko_restmag
+package com.zaich.toko_restmag.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -11,7 +11,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val intent = Intent(application,LoginActivity::class.java)
+        val intent = Intent(application, LoginActivity::class.java)
         binding.btRegis.setOnClickListener {
             startActivity(intent)
         }
