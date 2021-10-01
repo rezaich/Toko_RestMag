@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.zaich.toko_restmag.databinding.FragmentAkunBinding
-import com.zaich.toko_restmag.ui.LoginActivity
+import com.zaich.toko_restmag.ui.activity.LoginActivity
 
 class Akun : Fragment() {
 

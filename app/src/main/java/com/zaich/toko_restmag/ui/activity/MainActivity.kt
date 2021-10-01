@@ -1,4 +1,4 @@
-package com.zaich.toko_restmag.ui
+package com.zaich.toko_restmag.ui.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

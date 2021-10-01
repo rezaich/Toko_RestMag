@@ -1,4 +1,4 @@
-package com.zaich.toko_restmag.ui
+package com.zaich.toko_restmag.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +8,7 @@ import com.google.android.material.navigation.NavigationView
 import com.zaich.toko_restmag.CreateUser
 import com.zaich.toko_restmag.ListUser
 import com.zaich.toko_restmag.databinding.ActivityUserBinding
+import com.zaich.toko_restmag.ui.ViewPagerAdapter
 
 class UserActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
