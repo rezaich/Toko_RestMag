@@ -14,16 +14,16 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.Toko_RestMag">
-        <activity android:name=".ui.UserActivity" />
-        <activity android:name=".ui.RegisterActivity" />
-        <activity android:name=".ui.LoginActivity">
+        <activity android:name=".ui.activity.UserActivity" />
+        <activity android:name=".ui.activity.RegisterActivity" />
+        <activity android:name=".ui.activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.MainActivity" />
+        <activity android:name=".ui.activity.MainActivity" />
     </application>
 
 </manifest>
