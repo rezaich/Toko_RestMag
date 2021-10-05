@@ -18,6 +18,7 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
+               android:id="@+id/etUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Input Username"
@@ -34,15 +35,17 @@
             android:layout_below="@+id/signin_layout_user_name">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Input Phone"
-                android:inputType="text"
+                android:inputType="phone"
                 android:singleLine="true" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
+            android:id="@+id/btSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SAVE"

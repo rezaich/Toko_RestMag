@@ -109,6 +109,8 @@
                     android:layout_marginLeft="20dp"
                     android:hint="User Name" />
 
+
+
                 <!--                <TextView-->
                 <!--                    android:id="@+id/logPasswordtxt"-->
                 <!--                    android:layout_width="wrap_content"-->
@@ -125,8 +127,17 @@
                     android:layout_below="@+id/etLogUserName"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
-                    android:hint="Password"/>
+                    android:hint="Password"
+                    android:inputType="textPassword"/>
+
             </RelativeLayout>
+
+            <ProgressBar
+                android:id="@+id/pbSearch"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
         </androidx.cardview.widget.CardView>
         <Button
             android:id="@+id/btnLogin"
@@ -144,6 +155,9 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp" />
 
+
     </LinearLayout>
+
+
 
 </LinearLayout>

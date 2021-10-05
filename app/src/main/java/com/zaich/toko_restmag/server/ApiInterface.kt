@@ -1,12 +1,12 @@
 package com.zaich.toko_restmag.server
 
+import com.google.gson.JsonObject
 import com.zaich.toko_restmag.model.LoginResponse
+import com.zaich.toko_restmag.model.LogoutResponse
 import com.zaich.toko_restmag.model.UserModel
+import com.zaich.toko_restmag.model.PegawaiModel
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiInterface {
     @POST("register")
@@ -17,4 +17,12 @@ interface ApiInterface {
     fun login(@Field("user_name")user_name:String,
               @Field("password")password:String
     ):Call<LoginResponse>
+
+    @POST("logout")
+    fun logout(@Header("Authorization")authHeader: String): Call<JsonObject>
+
+    @POST("registers")
+    fun createUser(@Header("Authorization")authHeader: String,
+                   @Body createPegawaiModel : PegawaiModel
+    ):Call<PegawaiModel>
 }
