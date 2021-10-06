@@ -1,29 +1,29 @@
-package com.zaich.toko_restmag
+package com.zaich.toko_restmag.ui.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.zaich.toko_restmag.R
-import com.zaich.toko_restmag.databinding.FragmentCreateUserBinding
-import com.zaich.toko_restmag.databinding.FragmentListUserBinding
+import com.zaich.toko_restmag.databinding.LayoutCreateMenuBinding
 
-class ListUser : Fragment() {
-
-    private var _binding : FragmentListUserBinding? =null
+class AddMinumanFragment:Fragment (){
+    private var _binding  : LayoutCreateMenuBinding?  = null
     private val binding get() = _binding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list_user, container, false)
+        return inflater.inflate(R.layout.layout_create_menu, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentListUserBinding.bind(view)
+
+        _binding = LayoutCreateMenuBinding.bind(view)
+
     }
 }

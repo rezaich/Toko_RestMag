@@ -5,14 +5,20 @@
       <map>
         <entry key="..\:/TUgas akhir/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/TUgas akhir/app/src/main/res/layout/activity_main.xml" value="0.16945288753799392" />
+        <entry key="..\:/TUgas akhir/app/src/main/res/layout/activity_menu.xml" value="0.14" />
         <entry key="..\:/TUgas akhir/app/src/main/res/layout/activity_register.xml" value="0.1" />
         <entry key="..\:/TUgas akhir/app/src/main/res/layout/activity_user.xml" value="0.16945288753799392" />
         <entry key="..\:/TUgas akhir/app/src/main/res/layout/fragment_akun.xml" value="0.16945288753799392" />
+        <entry key="..\:/TUgas akhir/app/src/main/res/layout/fragment_create_menu.xml" value="0.1" />
         <entry key="..\:/TUgas akhir/app/src/main/res/layout/fragment_create_user.xml" value="0.1" />
         <entry key="..\:/TUgas akhir/app/src/main/res/layout/fragment_home.xml" value="0.16945288753799392" />
-        <entry key="..\:/TUgas akhir/app/src/main/res/layout/fragment_list_user.xml" value="0.1" />
+        <entry key="..\:/TUgas akhir/app/src/main/res/layout/fragment_list_menu.xml" value="0.1921875" />
+        <entry key="..\:/TUgas akhir/app/src/main/res/layout/fragment_list_user.xml" value="0.25" />
+        <entry key="..\:/TUgas akhir/app/src/main/res/layout/layout_create_menu.xml" value="0.1" />
         <entry key="..\:/TUgas akhir/app/src/main/res/layout/nav_bottom.xml" value="0.19010416666666666" />
         <entry key="..\:/TUgas akhir/app/src/main/res/layout/user_layout.xml" value="0.1" />
+        <entry key="..\:/TUgas akhir/app/src/main/res/menu/drawer_menu.xml" value="0.1" />
+        <entry key="..\:/TUgas akhir/app/src/main/res/menu/nav_bottom.xml" value="0.1" />
       </map>
     </option>
   </component>

@@ -1,31 +1,16 @@
 package com.zaich.toko_restmag
 
-import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.os.Build
 import android.os.Bundle
-import android.os.StrictMode
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.activity.viewModels
-import com.google.gson.JsonObject
 import com.zaich.toko_restmag.databinding.FragmentAkunBinding
 import com.zaich.toko_restmag.ui.activity.LoginActivity
-import retrofit2.Call
-import com.zaich.toko_restmag.server.ApiInterface
-import com.zaich.toko_restmag.server.ApiClient
-import retrofit2.Callback
-import retrofit2.Response
-import com.zaich.toko_restmag.model.LogoutResponse
-import com.zaich.toko_restmag.ui.viewmodel.LoginViewModel
-import org.json.JSONObject
 import com.zaich.toko_restmag.ui.viewmodel.AkunViewModel
-import androidx.activity.viewModels
 import androidx.fragment.app.viewModels
 
 

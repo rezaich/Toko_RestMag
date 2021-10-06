@@ -5,6 +5,7 @@ import com.zaich.toko_restmag.model.LoginResponse
 import com.zaich.toko_restmag.model.LogoutResponse
 import com.zaich.toko_restmag.model.UserModel
 import com.zaich.toko_restmag.model.PegawaiModel
+import com.zaich.toko_restmag.model.MenuModel
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -25,4 +26,9 @@ interface ApiInterface {
     fun createUser(@Header("Authorization")authHeader: String,
                    @Body createPegawaiModel : PegawaiModel
     ):Call<PegawaiModel>
+
+    @POST("/products/store")
+    fun storeProduct(@Header("Authorization")authHeader: String,
+                   @Body createMenu : MenuModel
+    ):Call<MenuModel>
 }

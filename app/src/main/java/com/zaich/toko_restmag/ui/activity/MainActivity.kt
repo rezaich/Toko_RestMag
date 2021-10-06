@@ -47,12 +47,16 @@ class MainActivity : AppCompatActivity() {
 
         navDrawerView.setNavigationItemSelectedListener { menuitem ->
             when (menuitem.itemId) {
-                R.id.menuHome -> {
+                R.id.home -> {
                     startActivity(Intent(application, MainActivity::class.java))
                     true
                 }
-                R.id.userManagement -> {
+                R.id.user_management -> {
                     startActivity(Intent(application, UserActivity::class.java))
+                    true
+                }
+                R.id.menu_management -> {
+                    startActivity(Intent(application,MenuActivity::class.java))
                     true
                 }
                 else -> {
