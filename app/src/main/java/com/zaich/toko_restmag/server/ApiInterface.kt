@@ -27,8 +27,11 @@ interface ApiInterface {
                    @Body createPegawaiModel : PegawaiModel
     ):Call<PegawaiModel>
 
-    @POST("/products/store")
+    @POST("products/store")
     fun storeProduct(@Header("Authorization")authHeader: String,
                    @Body createMenu : MenuModel
     ):Call<MenuModel>
+
+    @GET("products")
+    fun showProduct(@Header("Authorizatiom")authHeader: String):Call<JsonObject>
 }

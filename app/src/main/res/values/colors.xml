@@ -11,4 +11,9 @@
     <color name="Darkgreen">#81c784</color>
     <color name="red">#911F27</color>
     <color name="redDark">#630A10</color>
+    <color name="grey">#8e8e8e</color>
+    <color name="blue_grey">#263238</color>
+    <color name="dark_blue_grey">#000a12</color>
+    <color name="light_blue_grey">#4f5b62</color>
+    <color name="light2_blue_grey">#49657b</color>
 </resources>

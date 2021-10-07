@@ -11,6 +11,30 @@
         android:orientation="vertical"
         android:gravity="center">
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/ibBackProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_keyboard_arrow_left_24"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/profile"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_marginTop="8dp"/>
+            <ImageButton
+                android:id="@+id/ibEditProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_edit_24"
+                android:layout_gravity="end" />
+        </androidx.cardview.widget.CardView>
+
         <ImageView
             android:layout_marginTop="40dp"
             android:id="@+id/ivAkun"
@@ -47,7 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="100dp"
             android:text="Logout" />
     </LinearLayout>
 

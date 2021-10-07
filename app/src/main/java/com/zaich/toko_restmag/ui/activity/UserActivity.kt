@@ -7,11 +7,9 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayoutMediator
-import com.zaich.toko_restmag.CreateUser
-import com.zaich.toko_restmag.ListUser
 import com.zaich.toko_restmag.R
 import com.zaich.toko_restmag.databinding.ActivityUserBinding
-import com.zaich.toko_restmag.ui.ViewPagerAdapter2
+import com.zaich.toko_restmag.ui.adapter.ViewPagerAdapter2
 
 class UserActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout

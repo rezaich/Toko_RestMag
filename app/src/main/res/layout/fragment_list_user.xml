@@ -38,7 +38,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvUser"
-        tools:listitem="@layout/user_layout"
+        tools:listitem="@layout/item_user"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

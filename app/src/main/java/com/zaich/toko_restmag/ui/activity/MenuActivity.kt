@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.annotation.StringRes
 import com.google.android.material.tabs.TabLayoutMediator
 import com.zaich.toko_restmag.databinding.ActivityMenuBinding
-import com.zaich.toko_restmag.ui.ViewPagerAdapter
+import com.zaich.toko_restmag.ui.adapter.ViewPagerAdapter
 import com.zaich.toko_restmag.R
 
 

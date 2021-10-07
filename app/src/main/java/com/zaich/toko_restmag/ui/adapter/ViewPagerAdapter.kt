@@ -1,4 +1,4 @@
-package com.zaich.toko_restmag.ui
+package com.zaich.toko_restmag.ui.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
