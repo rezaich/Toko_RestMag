@@ -4,12 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/TUgas akhir/app/src/main/res/drawable/ic_baseline_keyboard_arrow_left_24.xml" value="0.1" />
+        <entry key="..\:/TUgas akhir/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1" />
+        <entry key="..\:/TUgas akhir/app/src/main/res/layout/activity_create_profile.xml" value="0.19270833333333334" />
         <entry key="..\:/TUgas akhir/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/TUgas akhir/app/src/main/res/layout/activity_main.xml" value="0.16945288753799392" />
         <entry key="..\:/TUgas akhir/app/src/main/res/layout/activity_menu.xml" value="0.14" />
         <entry key="..\:/TUgas akhir/app/src/main/res/layout/activity_register.xml" value="0.1" />
         <entry key="..\:/TUgas akhir/app/src/main/res/layout/activity_user.xml" value="0.16945288753799392" />
-        <entry key="..\:/TUgas akhir/app/src/main/res/layout/fragment_akun.xml" value="0.1366120218579235" />
+        <entry key="..\:/TUgas akhir/app/src/main/res/layout/fragment_akun.xml" value="0.5" />
         <entry key="..\:/TUgas akhir/app/src/main/res/layout/fragment_create_menu.xml" value="0.1" />
         <entry key="..\:/TUgas akhir/app/src/main/res/layout/fragment_create_user.xml" value="0.1" />
         <entry key="..\:/TUgas akhir/app/src/main/res/layout/fragment_home.xml" value="0.16945288753799392" />

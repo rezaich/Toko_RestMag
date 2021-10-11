@@ -6,6 +6,9 @@ import com.zaich.toko_restmag.model.LogoutResponse
 import com.zaich.toko_restmag.model.UserModel
 import com.zaich.toko_restmag.model.PegawaiModel
 import com.zaich.toko_restmag.model.MenuModel
+import com.zaich.toko_restmag.model.DetailUserModel
+import com.zaich.toko_restmag.model.ServerResponse
+import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -32,6 +35,15 @@ interface ApiInterface {
                    @Body createMenu : MenuModel
     ):Call<MenuModel>
 
+//    @Multipart
+//    @POST("uploads/upload_image.php")
+//    fun uploadImage(@Header("Authorization")authHeader: String,
+//    @Part imagename: MultipartBody.Part):Call<ServerResponse>
+
     @GET("products")
     fun showProduct(@Header("Authorization")authHeader: String):Call<JsonObject>
+
+    @POST("store")
+    fun storeUser(@Header("Authorization")authHeader: String,
+    @Body CreateDetailUser : DetailUserModel ) : Call<LogoutResponse>
 }
