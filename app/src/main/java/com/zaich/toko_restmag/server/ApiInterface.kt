@@ -33,5 +33,5 @@ interface ApiInterface {
     ):Call<MenuModel>
 
     @GET("products")
-    fun showProduct(@Header("Authorizatiom")authHeader: String):Call<JsonObject>
+    fun showProduct(@Header("Authorization")authHeader: String):Call<JsonObject>
 }

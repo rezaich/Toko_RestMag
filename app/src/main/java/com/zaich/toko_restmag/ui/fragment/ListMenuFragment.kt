@@ -64,6 +64,52 @@ class ListMenuFragment : Fragment() {
 //        })
 
 //        viewModel.setList()
+
+        val SDK_INT = Build.VERSION.SDK_INT
+        if (SDK_INT > 8) {
+            val policy = StrictMode.ThreadPolicy.Builder()
+                .permitAll().build()
+            StrictMode.setThreadPolicy(policy)
+            //your codes here
+            sharedPref = requireActivity().getSharedPreferences(
+                "SharePref",
+                Context.MODE_PRIVATE
+            )
+            token = sharedPref.getString("token", "")!!
+            serverInterface.showProduct("Bearer " + token).enqueue(object : Callback<JsonObject> {
+                override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
+                    Log.d("menu", "List Menu")
+
+                    val myJson = response.body()
+                    val myData = myJson!!.getAsJsonArray("data")
+                    val arrayItem = ArrayList<MenuModel>()
+                    for (i in 0 until myData.size()){
+                        var myRecord = myData.get(i).asJsonObject
+                        var price = myRecord.get("price").asInt
+                        var name = myRecord.get("name").asString
+                        var desc = myRecord.get("description").asString
+                        var image = myRecord.get("image_link").asString
+                        var categoryid = myRecord.get("category_id").asInt
+
+                        Log.d("Log "+i.toString(), myData.get(i).toString())
+                        arrayItem.add(MenuModel( name,price,desc,image,categoryid))
+                    }
+
+                    Log.d("Array Item", arrayItem.toString())
+                    adapter.setMenu(arrayItem)
+
+                    binding?.apply {
+                        rvListMenu.layoutManager = LinearLayoutManager(activity)
+                        rvListMenu.adapter = adapter
+                        rvListMenu.setHasFixedSize(true)
+                    }
+                }
+
+                override fun onFailure(call: Call<JsonObject>, t: Throwable) {
+                    Log.d("Failure", t.message.toString())
+                }
+            })
+        }
     }
 
     fun getMenu(){
@@ -84,7 +130,6 @@ class ListMenuFragment : Fragment() {
 
                     val myJson = response.body()
                     val myData = myJson!!.getAsJsonArray("data")
-
                     val arrayItem = ArrayList<MenuModel>()
                     for (i in 0 until myData.size()){
                         var myRecord = myData.get(i).asJsonObject
@@ -97,6 +142,7 @@ class ListMenuFragment : Fragment() {
                         Log.d("Log "+i.toString(), myData.get(i).toString())
                         arrayItem.add(MenuModel( name,price,desc,image,categoryid))
                     }
+
                     Log.d("Array Item", arrayItem.toString())
                     adapter.setMenu(arrayItem)
 
