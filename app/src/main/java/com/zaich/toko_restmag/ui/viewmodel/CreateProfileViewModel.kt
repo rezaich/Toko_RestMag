@@ -18,7 +18,7 @@ import com.zaich.toko_restmag.model.LogoutResponse
 import retrofit2.Call
 import retrofit2.Response
 
-class CreateActivityViewModel (application: Application) : AndroidViewModel(application)  {
+class CreateProfileViewModel (application: Application) : AndroidViewModel(application)  {
     private val serverInterface: ApiInterface = ApiClient().getApiClient()!!.create(ApiInterface::class.java)
     private val detail = MutableLiveData<DetailUserModel>()
     lateinit var sharedPref: SharedPreferences
@@ -37,14 +37,13 @@ class CreateActivityViewModel (application: Application) : AndroidViewModel(appl
             )
             token = sharedPref.getString("token", "")!!
 
-            serverInterface.storeUser("Bearer " + token, detailUserModel)
+            serverInterface.storeUser("Bearer "+token,detailUserModel)
                 .enqueue(object : Callback<LogoutResponse> {
                     override fun onResponse(
                         call: Call<LogoutResponse>,
                         response: Response<LogoutResponse>,
                     ) {
                         Log.d("Detail", "Detail terkirim")
-
                         Toast.makeText(getApplication(), "detail terkirim", Toast.LENGTH_SHORT)
                             .show()
                     }
@@ -54,6 +53,7 @@ class CreateActivityViewModel (application: Application) : AndroidViewModel(appl
                     }
                 })
         }
-        fun getdetail():MutableLiveData<DetailUserModel> = detail
+
     }
+    fun getdetail():MutableLiveData<DetailUserModel> = detail
 }

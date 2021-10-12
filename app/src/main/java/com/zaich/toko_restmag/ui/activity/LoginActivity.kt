@@ -9,9 +9,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.activity.viewModels
-import androidx.core.content.ContextCompat
-import com.zaich.toko_restmag.ui.viewmodel.LoginViewModel
 import com.zaich.toko_restmag.databinding.ActivityLoginBinding
 import com.zaich.toko_restmag.server.ApiClient
 import com.zaich.toko_restmag.server.ApiInterface
@@ -19,62 +16,23 @@ import retrofit2.Response
 import com.zaich.toko_restmag.model.LoginResponse
 import retrofit2.Call
 import retrofit2.Callback
-import kotlin.math.log
 
 class LoginActivity : AppCompatActivity(),View.OnClickListener{
     private lateinit var binding : ActivityLoginBinding
     private lateinit var sharePref : SharedPreferences
-    private val loginViewModel : LoginViewModel by viewModels()
-    private var response : Response<LoginResponse>? = null
-    private var model : LoginResponse? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-/*        binding.btnLogin.setOnClickListener{
-            login()
-//            val intent = Intent(this,MainActivity::class.java)
-////            startActivity( Intent(this,MainActivity::class.java))
-//            if (model?.token != null){
-//                startActivity(intent)
-//            }else{
-//                Toast.makeText(this, "tidak masuk", Toast.LENGTH_SHORT).show()
-//            }
-        }*/
 
         binding.btnLogin.setOnClickListener(this)
 
         binding.crAccount.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
-
-/*        loginViewModel.getLogin().observe(this,{
-            if (it != null){
-                Toast.makeText(this, "mantap", Toast.LENGTH_SHORT).show()
-                showLoading(false)
-
-
-//                if (it.token != null){
-//                    startActivity(intent)
-//                }
-            }
-        })*/
     }
-
-/*    private fun login (){
-        val userName = binding.etLogUserName.text.toString()
-        val password = binding.etLogPass.text.toString()
-        loginViewModel.setLogin(userName,password)
-        showLoading(true)
-
-        if (userName.isEmpty() || password.isEmpty()){
-            Toast.makeText(this, "Masih ada Field yang kosong", Toast.LENGTH_SHORT).show()
-        }else{
-
-            Toast.makeText(this, "NULL", Toast.LENGTH_SHORT).show()
-        }
-    }*/
 
     private fun showLoading(state: Boolean) {
         if (state) {
@@ -84,6 +42,7 @@ class LoginActivity : AppCompatActivity(),View.OnClickListener{
         }
     }
     override fun onClick(v: View?) {
+//        startActivity(Intent(this,MainActivity::class.java))
         val user_name = binding.etLogUserName.text.toString()
         val password = binding.etLogPass.text.toString()
 

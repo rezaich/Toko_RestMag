@@ -43,7 +43,13 @@ interface ApiInterface {
     @GET("products")
     fun showProduct(@Header("Authorization")authHeader: String):Call<JsonObject>
 
-    @POST("store")
+    @POST("")
     fun storeUser(@Header("Authorization")authHeader: String,
     @Body CreateDetailUser : DetailUserModel ) : Call<LogoutResponse>
+
+    @GET("users")
+    fun showUsers(@Header("Authorization")authHeader: String):Call<JsonObject>
+
+    @GET("show")
+    fun showDetail(@Header("Authorization")authHeader: String):Call<JsonObject>
 }

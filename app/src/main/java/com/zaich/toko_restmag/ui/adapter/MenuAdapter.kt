@@ -16,6 +16,7 @@ class MenuAdapter(private val list:ArrayList<MenuModel>, val context: Context):R
             with(binding){
                 tvName.text = menu.name
                 tvPrice.text = menu.price.toString()
+                tvDesc.text = menu.description
 //                val url: URL = URL("http://rezaich.teknisitik.com/" + menu.image_link)
 //                val bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream())
 //                imgPhoto.setImageBitmap(bmp)

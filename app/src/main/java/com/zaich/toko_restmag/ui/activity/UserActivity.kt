@@ -12,9 +12,6 @@ import com.zaich.toko_restmag.databinding.ActivityUserBinding
 import com.zaich.toko_restmag.ui.adapter.ViewPagerAdapter2
 
 class UserActivity : AppCompatActivity() {
-    private lateinit var drawerLayout: DrawerLayout
-    private lateinit var actionBarToggle: ActionBarDrawerToggle
-    private lateinit var navDrawerView: NavigationView
     private lateinit var binding: ActivityUserBinding
     private lateinit var viewPagerAdapter: ViewPagerAdapter2
 
@@ -33,16 +30,6 @@ class UserActivity : AppCompatActivity() {
             }.attach()
         }
     }
-//        setUpTabs()
-
-
-//    private fun setUpTabs(){
-//        val adapter = ViewPagerAdapter(supportFragmentManager)
-//        adapter.addFragment(ListUser(),"List")
-//        adapter.addFragment(CreateUser(),"create")
-//        binding.viewPager.adapter = adapter
-//        binding.tabMode.setupWithViewPager(binding.viewPager)
-//    }
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
@@ -50,8 +37,6 @@ class UserActivity : AppCompatActivity() {
     }
 
     companion object {
-//        const val EXTRA_USER = "EXTRA USER"
-
         @StringRes
         private val TAB_TITLE = intArrayOf(
             R.string.tab_3, R.string.tab_4

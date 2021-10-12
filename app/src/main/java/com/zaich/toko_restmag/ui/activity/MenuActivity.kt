@@ -17,6 +17,8 @@ class MenuActivity : AppCompatActivity() {
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+
         viewPagerAdapter = ViewPagerAdapter(supportFragmentManager, lifecycle)
         with(binding) {
             viewPager.adapter = viewPagerAdapter
@@ -26,8 +28,12 @@ class MenuActivity : AppCompatActivity() {
         }
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
     companion object {
-//        const val EXTRA_USER = "EXTRA USER"
 
         @StringRes
         private val TAB_TITLE = intArrayOf(

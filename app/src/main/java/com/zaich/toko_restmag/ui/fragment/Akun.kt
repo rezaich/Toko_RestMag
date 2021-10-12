@@ -1,8 +1,12 @@
 package com.zaich.toko_restmag
 
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.os.Build
 import android.os.Bundle
+import android.os.StrictMode
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +16,12 @@ import com.zaich.toko_restmag.databinding.FragmentAkunBinding
 import com.zaich.toko_restmag.ui.activity.LoginActivity
 import com.zaich.toko_restmag.ui.viewmodel.AkunViewModel
 import androidx.fragment.app.viewModels
+import com.google.gson.JsonObject
+import com.zaich.toko_restmag.server.ApiClient
+import com.zaich.toko_restmag.server.ApiInterface
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class Akun : Fragment() {
@@ -21,6 +31,9 @@ class Akun : Fragment() {
     lateinit var sharedPref: SharedPreferences
     private val AkunViewModel : AkunViewModel by viewModels()
     var token: String = ""
+
+    private val serverInterface: ApiInterface = ApiClient().getApiClient()!!.create(ApiInterface::class.java)
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,51 +48,58 @@ class Akun : Fragment() {
 
         _binding = FragmentAkunBinding.bind(view)
 
-        AkunViewModel.getLogout().observe(viewLifecycleOwner,{
-            if (it != null){
+        AkunViewModel.getLogout().observe(viewLifecycleOwner, {
+            if (it != null) {
                 Toast.makeText(activity, "Terlogout", Toast.LENGTH_SHORT).show()
             }
         })
 
-
-
+        binding?.ibEditProfile?.setOnClickListener {
+            startActivity(Intent(activity,CreateProfileActivity::class.java))
+        }
 
         binding?.btnLogout?.setOnClickListener {
             AkunViewModel.setLogout()
             startActivity(Intent(activity, LoginActivity::class.java))
+            showLoading(true)
 //
 
-//            val SDK_INT = Build.VERSION.SDK_INT
-//            if (SDK_INT > 8) {
-//                val policy = StrictMode.ThreadPolicy.Builder()
-//                    .permitAll().build()
-//                StrictMode.setThreadPolicy(policy)
-//                //your codes here
-//                sharedPref =
-//                    requireActivity().getSharedPreferences("SharePref", Context.MODE_PRIVATE)
-//                token = sharedPref.getString("token", "")!!
-//
-//                var apiInterface: ApiInterface = ApiClient().getApiClient()!!
-//                    .create(ApiInterface::class.java)
-//                var requestCall: Call<JsonObject> =
-//                    apiInterface.logout("Bearer "+token)
-//                requestCall.enqueue(object :Callback<JsonObject>{
-//                    override fun onResponse(
-//                        call: Call<JsonObject>,
-//                        response: Response<JsonObject>
-//                    ) {
-//                       Log.d("logout pasti","logout")
-//
-//                        Toast.makeText(activity, "logout pasti", Toast.LENGTH_SHORT).show()
-//                        startActivity(Intent(activity, LoginActivity::class.java))
-//                    }
-//
-//                    override fun onFailure(call: Call<JsonObject>, t: Throwable) {
-//                        Log.d("logout",t.message.toString())
-//                    }
-//
-//                })
-//            }
+            val SDK_INT = Build.VERSION.SDK_INT
+            if (SDK_INT > 8) {
+                val policy = StrictMode.ThreadPolicy.Builder()
+                    .permitAll().build()
+                StrictMode.setThreadPolicy(policy)
+                //your codes here
+                sharedPref =
+                    requireActivity().getSharedPreferences("SharePref", Context.MODE_PRIVATE)
+                token = sharedPref.getString("token", "")!!
+
+                serverInterface.showDetail("Bearer " + token).enqueue(object : Callback<JsonObject>{
+                    override fun onResponse(
+                        call: Call<JsonObject>,
+                        response: Response<JsonObject>,
+                    ) {
+                        Log.d("Akun","isi akun")
+                        showLoading(false)
+                    }
+
+                    override fun onFailure(call: Call<JsonObject>, t: Throwable) {
+
+                        Log.d("Akun",t.message.toString())
+
+                    }
+
+                })
+
+            }
+        }
+    }
+
+    private fun showLoading(state: Boolean) {
+        if (state) {
+            binding?.pbSearch?.visibility = View.VISIBLE
+        } else {
+            binding?.pbSearch?.visibility = View.GONE
         }
     }
 }

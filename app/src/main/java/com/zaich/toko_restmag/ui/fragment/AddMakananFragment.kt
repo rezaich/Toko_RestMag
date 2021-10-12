@@ -31,13 +31,6 @@ class AddMakananFragment :Fragment(){
 
         _binding = LayoutCreateMenuBinding.bind(view)
 
-        binding?.ibMenu?.setOnClickListener {
-            val intent = Intent().apply{
-                setType("image/*")
-                setAction(Intent.ACTION_GET_CONTENT)
-            }
-            startActivity(intent)
-        }
 
         viewModelMenu.getMenu().observe(viewLifecycleOwner,{
             if (it != null){
@@ -50,13 +43,13 @@ class AddMakananFragment :Fragment(){
             val name  = binding?.etMenuName?.text.toString()
             val price = binding?.etMenuPrice?.text.toString().toInt()
             val desc = binding?.etMenuDesc?.text.toString()
-            val image = "jpeg"
             val category = 1
+            showLoading(true)
 
             if (name.isNotEmpty() || desc.isNotEmpty() ){
-                val menu = MenuModel(name,price,desc,image,category)
+                val menu = MenuModel(name,price,desc,category)
                 viewModelMenu.setMenu(menu)
-                showLoading(true)
+                Toast.makeText(activity, "data masuk", Toast.LENGTH_SHORT).show()
             }
             else{
                 Toast.makeText(activity, "isi field terlebih dahulu", Toast.LENGTH_SHORT).show()

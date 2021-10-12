@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import com.zaich.toko_restmag.model.UserModel
@@ -18,7 +19,6 @@ class RegisterActivity : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val intent = Intent(application, LoginActivity::class.java)
         binding.btRegis.setOnClickListener {
             register()
         }
@@ -26,6 +26,7 @@ class RegisterActivity : AppCompatActivity() {
         registViewModel.getRegist().observe(this, {
             if (it != null) {
                 Toast.makeText(this, "Register Successfull", Toast.LENGTH_SHORT).show()
+                showLoading(false)
             }
         })
     }
@@ -45,12 +46,21 @@ class RegisterActivity : AppCompatActivity() {
         } else {
             val newUser = UserModel(name, userName, password, isAdmin)
             registViewModel.setRegist(newUser)
+            showLoading(true)
             val message = Log.d("regist", "register Successfull").toString()
             if (message != null) {
                 startActivity(Intent(this, LoginActivity::class.java))
             } else {
                 Toast.makeText(this, "tidak masuk", Toast.LENGTH_SHORT).show()
             }
+        }
+    }
+
+    private fun showLoading(state: Boolean) {
+        if (state) {
+            binding.pbSearch.visibility = View.VISIBLE
+        } else {
+            binding.pbSearch.visibility = View.GONE
         }
     }
 }

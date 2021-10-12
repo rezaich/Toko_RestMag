@@ -35,24 +35,18 @@
         </androidx.cardview.widget.CardView>
 
         <EditText
-            android:id="@+id/etName"
+            android:id="@+id/etAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="name" />
+            android:hint="Address" />
 
         <EditText
-            android:id="@+id/etBio"
+            android:id="@+id/etPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Address"
             android:layout_marginTop="20dp" />
-        <EditText
-            android:id="@+id/etEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Phone"
-            android:layout_marginTop="20dp"/>
         <Button
             android:id="@+id/btnCreateProfile"
             android:layout_width="match_parent"
@@ -61,11 +55,11 @@
             android:text="@string/crate"/>
 
         <ProgressBar
-            android:id="@+id/pbCreateProfile"
+            android:id="@+id/pbSearch"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="invisible"/>
+            android:layout_gravity="center"/>
 
     </LinearLayout>
 

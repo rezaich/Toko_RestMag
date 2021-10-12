@@ -47,16 +47,5 @@ class CreateMenuFragment : Fragment() {
                 commit()
             }
         }
-
-
-//        ArrayAdapter.createFromResource(
-//            requireActivity(),
-//            R.array.action_array,
-//            android.R.layout.simple_list_item_1
-//
-//        ).also {
-//            it.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
-//            binding?.spinnerActivity?.adapter = it
-//        }
     }
 }

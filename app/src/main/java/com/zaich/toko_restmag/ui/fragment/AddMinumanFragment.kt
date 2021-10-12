@@ -40,27 +40,7 @@ class AddMinumanFragment : Fragment() {
 
         _binding = LayoutCreateMenuBinding.bind(view)
 
-        val resultLauncher =
-            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-                try {
-                    if (it?.resultCode == Activity.RESULT_OK) {
-                        it.data?.let {
-                            imageUri = it.data
-                            Glide.with(this).load(imageUri)
-                        }
-                    }
-                } catch (e: Exception) {
-                    Toast.makeText(activity, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
-                }
-            }
 
-        binding?.ibMenu?.setOnClickListener {
-            val intent = Intent().apply {
-                type = "image/*"
-                action = Intent.ACTION_GET_CONTENT
-            }
-            resultLauncher.launch(intent)
-        }
 
         viewModelMenu.getMenu().observe(viewLifecycleOwner, {
             if (it != null) {
@@ -75,14 +55,13 @@ class AddMinumanFragment : Fragment() {
             val desc = binding?.etMenuDesc?.text.toString()
             val category = 2
 
+            showLoading(true)
+
             if (name.isNotEmpty() || desc.isNotEmpty()) {
                 imageUri?.let {
-                    val contentResolver: ContentResolver = requireActivity().contentResolver
-                    val mimeTypeMap: MimeTypeMap = MimeTypeMap.getSingleton()
-                    val fileExtension = mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(it))
-                    var image = fileExtension
-                    val menu = MenuModel(name, price, desc, image!!, category)
+                    val menu = MenuModel(name, price, desc, category)
                     viewModelMenu.setMenu(menu)
+                    Toast.makeText(activity, "data masuk", Toast.LENGTH_SHORT).show()
                 }
             } else {
                 Toast.makeText(activity, "isi field terlebih dahulu", Toast.LENGTH_SHORT).show()

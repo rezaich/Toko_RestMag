@@ -6,3 +6,8 @@ data class UserModel(
     val password : String,
     val is_admin: String
 )
+
+data class Users(
+    val id : Int,
+    val user_name : String,
+)

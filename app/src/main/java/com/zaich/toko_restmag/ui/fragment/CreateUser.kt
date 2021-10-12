@@ -33,16 +33,32 @@ class CreateUser : Fragment() {
 
         _binding = FragmentCreateUserBinding.bind(view)
 
-        binding?.btSave?.setOnClickListener {
-            val name = binding?.etUsername?.text.toString()
-            val phone = binding?.etPhone?.text.toString()
+        CreateViewModel.getCreate().observe(viewLifecycleOwner,{
+            if (it != null){
+                Toast.makeText(activity, "SUCCESS", Toast.LENGTH_SHORT).show()
+                showLoading(false)
+            }
+        })
 
-            if (name.isEmpty() || phone.isEmpty()){
+        binding?.btSave?.setOnClickListener {
+            val name = "pegawai"
+            val userName = binding?.etUsername?.text.toString()
+            val phone = binding?.etPhone?.text.toString()
+            showLoading(true)
+
+            if (userName.isEmpty() || phone.isEmpty()){
                 Toast.makeText(activity, "ada field yang kosong", Toast.LENGTH_SHORT).show()
             }else{
-                val newUser = PegawaiModel(name, phone)
+                val newUser = PegawaiModel(name,userName, phone)
                 CreateViewModel.setCreate(newUser)
             }
+        }
+    }
+    private fun showLoading(state: Boolean) {
+        if (state) {
+            binding?.pbSearch?.visibility = View.VISIBLE
+        } else {
+            binding?.pbSearch?.visibility = View.GONE
         }
     }
 }
