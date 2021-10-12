@@ -1,5 +1,6 @@
-package com.zaich.toko_restmag
+package com.zaich.toko_restmag.ui.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -39,12 +40,11 @@ class CreateProfileActivity : AppCompatActivity() {
     private fun sendData(){
         val address  = binding.etAddress.text.toString()
         val phone = binding.etPhone.text.toString()
-        val image = "jpeg"
 
         showLoading(true)
 
         if (address.isNotEmpty()||phone.isNotEmpty()){
-            val detail = DetailUserModel(address,phone,image)
+            val detail = DetailUserModel(address,phone)
             viewModel.setDetail(detail)
         }else{
             Toast.makeText(this, "isi field terlebih dahulu", Toast.LENGTH_SHORT).show()

@@ -17,8 +17,10 @@ import com.zaich.toko_restmag.ui.activity.LoginActivity
 import com.zaich.toko_restmag.ui.viewmodel.AkunViewModel
 import androidx.fragment.app.viewModels
 import com.google.gson.JsonObject
+import com.zaich.toko_restmag.model.UserProfile
 import com.zaich.toko_restmag.server.ApiClient
 import com.zaich.toko_restmag.server.ApiInterface
+import com.zaich.toko_restmag.ui.activity.CreateProfileActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -55,7 +57,7 @@ class Akun : Fragment() {
         })
 
         binding?.ibEditProfile?.setOnClickListener {
-            startActivity(Intent(activity,CreateProfileActivity::class.java))
+            startActivity(Intent(activity, CreateProfileActivity::class.java))
         }
 
         binding?.btnLogout?.setOnClickListener {
@@ -80,7 +82,25 @@ class Akun : Fragment() {
                         response: Response<JsonObject>,
                     ) {
                         Log.d("Akun","isi akun")
+                        val myJson = response.body()
+                        val myData = myJson!!.getAsJsonArray("user")
+                        val arrayItem = ArrayList<UserProfile>()
+                        for (i in 0 until myData.size()){
+                            var myRecord = myData.get(i).asJsonObject
+                            var name = myRecord.get("name").asString
+                            var address = myRecord.get("address").asString
+                            var phone = myRecord.get("phone").asString
+
+                            Log.d("Log "+i.toString(), myData.get(i).toString())
+//                            arrayItem.add(UserProfile(name, address,phone,))
+                            binding?.tvName?.text = name
+                            binding?.tvAddress?.text = address
+                            binding?.tvPhone?.text = phone
+                        }
+
+                        binding
                         showLoading(false)
+
                     }
 
                     override fun onFailure(call: Call<JsonObject>, t: Throwable) {
@@ -92,6 +112,82 @@ class Akun : Fragment() {
                 })
 
             }
+        }
+        binding?.btnLogout?.setOnClickListener {
+            AkunViewModel.setLogout()
+            startActivity(Intent(activity, LoginActivity::class.java))
+            showLoading(true)
+//
+
+            val SDK_INT = Build.VERSION.SDK_INT
+            if (SDK_INT > 8) {
+                val policy = StrictMode.ThreadPolicy.Builder()
+                    .permitAll().build()
+                StrictMode.setThreadPolicy(policy)
+                //your codes here
+                sharedPref =
+                    requireActivity().getSharedPreferences("SharePref", Context.MODE_PRIVATE)
+                token = sharedPref.getString("token", "")!!
+
+                serverInterface.showDetail("Bearer " + token).enqueue(object : Callback<JsonObject>{
+                    override fun onResponse(
+                        call: Call<JsonObject>,
+                        response: Response<JsonObject>,
+                    ) {
+                        Log.d("Akun","isi akun")
+                    }
+
+                    override fun onFailure(call: Call<JsonObject>, t: Throwable) {
+                        Log.d("Akun",t.message.toString())
+
+                    }
+
+                })
+
+            }
+        }
+
+        val SDK_INT = Build.VERSION.SDK_INT
+        if (SDK_INT > 8) {
+            val policy = StrictMode.ThreadPolicy.Builder()
+                .permitAll().build()
+            StrictMode.setThreadPolicy(policy)
+            //your codes here
+            sharedPref =
+                requireActivity().getSharedPreferences("SharePref", Context.MODE_PRIVATE)
+            token = sharedPref.getString("token", "")!!
+
+            serverInterface.showDetail("Bearer " + token).enqueue(object : Callback<JsonObject>{
+                override fun onResponse(
+                    call: Call<JsonObject>,
+                    response: Response<JsonObject>,
+                ) {
+                    Log.d("Akun","isi akun")
+                    val myJson = response.body()
+                    val myData = myJson!!.getAsJsonObject("user")
+                        var name = myData.get("name").asString
+                        var address = myData.get("address").asString
+                        var phone = myData.get("phone").asString
+
+                        Log.d("Log ", myData.toString())
+//                            arrayItem.add(UserProfile(name, address,phone,))
+                        binding?.tvName?.text = name
+                        binding?.tvAddress?.text = address
+                        binding?.tvPhone?.text = phone
+
+                    binding
+                    showLoading(false)
+
+                }
+
+                override fun onFailure(call: Call<JsonObject>, t: Throwable) {
+
+                    Log.d("Akun",t.message.toString())
+
+                }
+
+            })
+
         }
     }
 

@@ -50,6 +50,7 @@ class AddMakananFragment :Fragment(){
                 val menu = MenuModel(name,price,desc,category)
                 viewModelMenu.setMenu(menu)
                 Toast.makeText(activity, "data masuk", Toast.LENGTH_SHORT).show()
+                showLoading(false)
             }
             else{
                 Toast.makeText(activity, "isi field terlebih dahulu", Toast.LENGTH_SHORT).show()

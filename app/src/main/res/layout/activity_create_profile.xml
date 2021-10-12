@@ -45,7 +45,7 @@
             android:id="@+id/etPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Address"
+            android:hint="Phone"
             android:layout_marginTop="20dp" />
         <Button
             android:id="@+id/btnCreateProfile"

@@ -16,7 +16,7 @@
         android:theme="@style/Theme.Toko_RestMag"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".CreateProfileActivity"
+            android:name=".ui.activity.CreateProfileActivity"
             android:exported="true" />
         <activity
             android:name=".ui.activity.MenuActivity"

@@ -43,7 +43,7 @@ interface ApiInterface {
     @GET("products")
     fun showProduct(@Header("Authorization")authHeader: String):Call<JsonObject>
 
-    @POST("")
+    @POST("update")
     fun storeUser(@Header("Authorization")authHeader: String,
     @Body CreateDetailUser : DetailUserModel ) : Call<LogoutResponse>
 

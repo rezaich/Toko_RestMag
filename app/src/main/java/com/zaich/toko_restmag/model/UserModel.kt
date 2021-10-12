@@ -11,3 +11,9 @@ data class Users(
     val id : Int,
     val user_name : String,
 )
+
+data class UserProfile(
+    val name : String ,
+    val address : String ,
+    val phone : String,
+)

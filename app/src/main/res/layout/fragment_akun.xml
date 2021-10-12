@@ -16,10 +16,13 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/ibBackProfile"
+                android:id="@+id/btnLogout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_keyboard_arrow_left_24"/>
+                android:src="@drawable/ic_logout"
+                android:layout_gravity="start"
+                android:text="Logout" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -41,7 +44,7 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginBottom="20dp"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/ic_baseline_table_restaurant_24" />
 
         <ProgressBar
             android:id="@+id/pbSearch"
@@ -55,6 +58,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="name"
+            android:textSize="48dp"
+            android:textStyle="bold"
             android:layout_margin="5dp"/>
 
         <TextView
@@ -62,6 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="address"
+            android:textStyle="italic"
             android:layout_margin="5dp"/>
 
         <TextView
@@ -69,15 +75,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Phone"
+            android:textSize="24dp"
             android:layout_margin="5dp"/>
-
-        <Button
-            android:id="@+id/btnLogout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="100dp"
-            android:text="Logout" />
 
     </LinearLayout>
 
