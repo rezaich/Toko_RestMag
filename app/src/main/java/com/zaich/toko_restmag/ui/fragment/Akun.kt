@@ -169,13 +169,11 @@ class Akun : Fragment() {
                         var address = myData.get("address").asString
                         var phone = myData.get("phone").asString
 
-                        Log.d("Log ", myData.toString())
-//                            arrayItem.add(UserProfile(name, address,phone,))
-                        binding?.tvName?.text = name
-                        binding?.tvAddress?.text = address
-                        binding?.tvPhone?.text = phone
+                    Log.d("Log ", myData.toString())
+                    binding?.tvName?.text = name
+                    binding?.tvAddress?.text = address
+                    binding?.tvPhone?.text = phone
 
-                    binding
                     showLoading(false)
 
                 }
@@ -183,9 +181,7 @@ class Akun : Fragment() {
                 override fun onFailure(call: Call<JsonObject>, t: Throwable) {
 
                     Log.d("Akun",t.message.toString())
-
                 }
-
             })
 
         }
