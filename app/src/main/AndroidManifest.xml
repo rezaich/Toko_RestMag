@@ -16,6 +16,15 @@
         android:theme="@style/Theme.Toko_RestMag"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".OpeningActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".ui.activity.CreateProfileActivity"
             android:exported="true" />
         <activity
@@ -23,14 +32,21 @@
             android:exported="true" />
         <activity android:name=".ui.activity.UserActivity" />
         <activity android:name=".ui.activity.RegisterActivity" />
-        <activity android:name=".ui.activity.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".ui.activity.LoginActivity"/>
         <activity android:name=".ui.activity.MainActivity" />
+
+<!--        Activity pegawai-->
+        <activity
+            android:name=".pegawai.activity.CartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pegawai.activity.OrderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pegawai.activity.CategoryActivity"
+            android:exported="false" />
+        <activity android:name=".pegawai.activity.LoginPegawaiActivity"/>
+        <activity android:name=".pegawai.activity.ProductActivity"/>
     </application>
 
 </manifest>

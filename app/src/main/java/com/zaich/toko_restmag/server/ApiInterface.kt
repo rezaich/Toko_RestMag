@@ -8,6 +8,7 @@ import com.zaich.toko_restmag.model.PegawaiModel
 import com.zaich.toko_restmag.model.MenuModel
 import com.zaich.toko_restmag.model.DetailUserModel
 import com.zaich.toko_restmag.model.ServerResponse
+import com.zaich.toko_restmag.pegawai.model.DefaultResponse
 import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.http.*
@@ -52,4 +53,34 @@ interface ApiInterface {
 
     @GET("show")
     fun showDetail(@Header("Authorization")authHeader: String):Call<JsonObject>
+
+    /** API PEMSESANAN*/
+    @GET("category")
+    fun getCategories(@Header("Authorization") authHeader:String)
+            : Call<JsonObject>
+
+    @FormUrlEncoded
+    @POST("carts")
+    fun addProductToCart(@Header("Authorization") authHeader: String,
+                         @Field("product_id") productId: Int,
+                         @Field("price") price: Int,
+                         @Field("quantity") quantity: Int,
+                         @Field("daydate") daydate: String,
+                         @Field("daytime") daytime: String) : Call<DefaultResponse>
+    @FormUrlEncoded
+    @POST("transactions")
+    fun addTransaction(@Header("Authorization") authHeader: String,
+                       @Field("product_id") productId: Int,
+                       @Field("name") name: String?,
+                       @Field("price") price: Int,
+                       @Field("quantity") quantity: Int,
+                       @Field("daydate") daydate: String?,
+                       @Field("daytime") daytime: String?) : Call<DefaultResponse>
+
+    @GET("products/searchByCategory/{categoryId}")
+    fun getProductsByCategory(@Header("Authorization") authHeader:String,
+                              @Path("categoryId") id: Int): Call<JsonObject>
+
+    @GET("carts/showByUser")
+    fun getCartsByUser(@Header("Authorization") authHeader: String): Call<JsonObject>
 }

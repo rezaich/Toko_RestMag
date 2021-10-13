@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="8"
+    tools:context=".pegawai.activity.OrderActivity">
+
+    <!--    <ScrollView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent">-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        android:layout_weight="8"
+        android:gravity="center"
+        android:background="@drawable/palet_container"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/OrdProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:text="Nama Menu"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            android:layout_marginTop="50dp">
+            <TextView
+                android:layout_width="0dp"
+                android:visibility="invisible"
+                android:layout_height="wrap_content"
+                android:text="Id Produk : "
+                android:layout_weight="0.5"
+                android:gravity="right"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/OrdId"
+                android:visibility="invisible"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:text="33"
+                android:gravity = "left"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/imgLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/OrdProduct"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
+        <!--            <TextView-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_below="@+id/imgLayout"-->
+        <!--                android:layout_marginStart="0dp"-->
+        <!--                android:layout_marginLeft="0dp"-->
+        <!--                android:layout_marginTop="10dp"-->
+        <!--                android:text="Rp."-->
+        <!--                android:textColor="@color/white"-->
+        <!--                android:textSize="30sp"-->
+        <!--                android:textStyle="bold" />-->
+        <TextView
+            android:id="@+id/rp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgLayout"
+            android:layout_marginStart="90dp"
+            android:layout_marginTop="25dp"
+            android:text="Rp."
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/OrdPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgLayout"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/rp"
+            android:gravity="end"
+            android:text="Harga Order"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/qtyLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/OrdPrice"
+            android:layout_marginStart="1dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="25dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/Qtytxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/hargaOrd"
+                android:layout_marginStart="0dp"
+                android:layout_marginLeft="0dp"
+                android:text="Jumlah:"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+
+            <TextView
+                android:id="@+id/decreaseOrd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/hargaOrd"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toEndOf="@+id/Qtytxt"
+                android:layout_toRightOf="@+id/Qtytxt"
+                android:background="@drawable/btn_incr_bcr"
+                android:gravity="center"
+                android:text="-"
+                android:textSize="30dp" />
+
+
+            <TextView
+                android:id="@+id/JmlOrd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/hargaOrd"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toEndOf="@+id/decreaseOrd"
+                android:layout_toRightOf="@+id/decreaseOrd"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/increaseOrd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/hargaOrd"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toEndOf="@+id/JmlOrd"
+                android:layout_toRightOf="@+id/JmlOrd"
+                android:background="@drawable/btn_incr_bcr"
+                android:gravity="center"
+                android:text="+"
+                android:textSize="30dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/field1"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/qtyLayout"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="30dp"
+            android:text="Total Harga: "
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/field2"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/qtyLayout"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="30dp"
+            android:text="Rp. "
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/TotHarOrd"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/qtyLayout"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="30dp"
+            android:layout_toRightOf="@id/field2"
+            android:text="0"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/daydate"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TotHarOrd"
+            android:visibility="gone"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/field2"
+            android:text="0"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/daytime"
+            android:layout_width="200dp"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/daydate"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/field2"
+            android:text="0"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+
+        <Button
+            android:id="@+id/btn_tambahKeranjang"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TotHarOrd"
+            android:layout_marginStart="110dp"
+            android:layout_marginTop="10dp"
+            android:text="Pesan"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+    </RelativeLayout>
+    <!--    </ScrollView>-->
+</LinearLayout>
