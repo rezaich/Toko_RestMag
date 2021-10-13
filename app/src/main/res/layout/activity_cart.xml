@@ -107,6 +107,31 @@
                         android:gravity="right"
                         android:text="20000"
                         android:textColor="@color/red"/>
+                    <TextView
+                        android:id="@+id/daydate"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/TotHarOrd"
+                        android:visibility="visible"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_toRightOf="@id/field2"
+                        android:text="0"
+                        android:textColor="@color/white"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/daytime"
+                        android:layout_width="200dp"
+                        android:visibility="visible"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/daydate"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_toRightOf="@id/field2"
+                        android:text="0"
+                        android:textColor="@color/white"
+                        android:textSize="25sp" />
                 </TableRow>
                 <View
                     android:layout_width="match_parent"

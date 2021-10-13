@@ -20,11 +20,16 @@ import com.zaich.toko_restmag.R
 import com.zaich.toko_restmag.databinding.ActivityCartBinding
 import com.zaich.toko_restmag.pegawai.adapter.CartAdapter
 import com.zaich.toko_restmag.pegawai.model.CartModel
+import com.zaich.toko_restmag.pegawai.model.DefaultResponse
 import com.zaich.toko_restmag.server.ApiClient
 import com.zaich.toko_restmag.server.ApiInterface
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class CartActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCartBinding
@@ -108,15 +113,65 @@ class CartActivity : AppCompatActivity() {
                     binding.rvCart.layoutManager = LinearLayoutManager(this@CartActivity)
                     binding.rvCart.adapter = myAdapter
 
+                    val calendar = Calendar.getInstance()
+                    val currentDate: Date = Calendar.getInstance().time
+                    val currentDaydate = DateFormat.getDateInstance(DateFormat.FULL).format(currentDate)
+                    val currentTime = SimpleDateFormat("HH:mm:ss").format(calendar.time)
+                    binding.daydate.text = currentDaydate
+                    binding.daytime.text = currentTime
+
                 }
-
-
             })
         }
 //        binding.btnCheckout.setOnClickListener {
 //            Intent(applicationContext, DataPemesanActivity::class.java).also {
 //                startActivities(arrayOf(it))
 //            }
+    }
+
+    private fun addTransactions(){
+        sharedPref = getSharedPreferences("SharePref", Context.MODE_PRIVATE)
+
+        val token = sharedPref.getString("token","")!!
+        val total = binding.tvTotalHarga.toString().toInt()
+        val daydate = binding.daydate.text.toString()
+        val daytime = binding.daytime.text.toString()
+
+        val apiInterface: ApiInterface = ApiClient()
+            .getApiClient()!!
+            .create(ApiInterface::class.java)
+        val requestCall: Call<DefaultResponse> = apiInterface
+            .addTransaction("Bearer $token", total, daydate, daytime)
+        requestCall.enqueue(object : Callback<DefaultResponse>{
+            override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
+                Toast.makeText(baseContext, "Data gagal ditambahkan ke transaction ",
+                    Toast.LENGTH_SHORT).show()
+                Log.d("log transactions fail", t.toString())
+            }
+
+            override fun onResponse(
+                call: Call<DefaultResponse>,
+                response: Response<DefaultResponse>
+            ) {
+                Log.d("log transactions", response.toString())
+                if(response.isSuccessful){
+                    Toast.makeText(this@CartActivity,
+                        "Data berhasil ditambahkan ke transaction",
+                        Toast.LENGTH_SHORT).show()
+                    Log.d("log transactions", response.body()?.success.toString())
+                    Log.d("Log transactions", response.body()?.message.toString())
+                    val intent = Intent(this@CartActivity,
+                        CategoryActivity::class.java)
+                    startActivity(intent)
+                }else{
+                    Toast.makeText(this@CartActivity,
+                        "Data gagal ditambahkan ke transaction ",
+                        Toast.LENGTH_SHORT).show()
+                    Log.d("log transactions", response.body().toString()+token)
+                }
+            }
+
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
