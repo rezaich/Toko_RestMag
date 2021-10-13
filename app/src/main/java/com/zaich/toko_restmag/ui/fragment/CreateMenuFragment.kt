@@ -1,6 +1,5 @@
 package com.zaich.toko_restmag.ui.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,8 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.zaich.toko_restmag.R
 import com.zaich.toko_restmag.databinding.FragmentCreateMenuBinding
-import com.zaich.toko_restmag.ui.activity.MakananActivity
-import com.zaich.toko_restmag.ui.activity.MinumanActivity
 
 class CreateMenuFragment : Fragment() {
 
@@ -49,8 +46,5 @@ class CreateMenuFragment : Fragment() {
                 commit()
             }
         }
-//        binding?.btMakanan?.setOnClickListener {
-//            startActivity(Intent(requireActivity(),MakananActivity::class.java))
-//        }
     }
 }

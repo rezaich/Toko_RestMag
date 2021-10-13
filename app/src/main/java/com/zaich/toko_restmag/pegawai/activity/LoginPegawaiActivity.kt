@@ -15,6 +15,7 @@ import com.zaich.toko_restmag.server.ApiInterface
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import com.zaich.toko_restmag.OpeningActivity
 
 class LoginPegawaiActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityLoginPegawaiBinding
@@ -26,7 +27,7 @@ class LoginPegawaiActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
 
         binding.btnLogin.setOnClickListener (this)
-
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
     }
 
     private fun showLoading(state: Boolean){
@@ -97,4 +98,9 @@ class LoginPegawaiActivity : AppCompatActivity(), View.OnClickListener {
 //            }
 //        }
 //    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        startActivity(Intent(this,OpeningActivity::class.java))
+        return true
+    }
 }

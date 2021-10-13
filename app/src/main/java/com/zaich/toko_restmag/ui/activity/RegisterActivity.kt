@@ -22,7 +22,7 @@ class RegisterActivity : AppCompatActivity() {
         binding.btRegis.setOnClickListener {
             register()
         }
-
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         registViewModel.getRegist().observe(this, {
             if (it != null) {
                 Toast.makeText(this, "Register Successfull", Toast.LENGTH_SHORT).show()
@@ -62,5 +62,9 @@ class RegisterActivity : AppCompatActivity() {
         } else {
             binding.pbSearch.visibility = View.GONE
         }
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

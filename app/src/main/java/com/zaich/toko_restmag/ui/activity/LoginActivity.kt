@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import com.zaich.toko_restmag.OpeningActivity
 import com.zaich.toko_restmag.databinding.ActivityLoginBinding
 import com.zaich.toko_restmag.server.ApiClient
 import com.zaich.toko_restmag.server.ApiInterface
@@ -25,7 +26,7 @@ class LoginActivity : AppCompatActivity(),View.OnClickListener{
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         binding.btnLogin.setOnClickListener(this)
 
@@ -50,7 +51,6 @@ class LoginActivity : AppCompatActivity(),View.OnClickListener{
             Toast.makeText(this, "Masih ada field yang kosong", Toast.LENGTH_LONG).show()
         }
         else {
-//            val loginUser : LoginResponse = LoginResponse(token = null)
     showLoading(true)
 
             var apiInterface: ApiInterface = ApiClient().getApiClient()!!.create(ApiInterface::class.java)
@@ -94,5 +94,9 @@ class LoginActivity : AppCompatActivity(),View.OnClickListener{
                 }
             })
         }
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        startActivity(Intent(this, OpeningActivity::class.java))
+        return true
     }
 }

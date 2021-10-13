@@ -36,11 +36,6 @@ interface ApiInterface {
                    @Body createMenu : MenuModel
     ):Call<MenuModel>
 
-//    @Multipart
-//    @POST("uploads/upload_image.php")
-//    fun uploadImage(@Header("Authorization")authHeader: String,
-//    @Part imagename: MultipartBody.Part):Call<ServerResponse>
-
     @GET("products")
     fun showProduct(@Header("Authorization")authHeader: String):Call<JsonObject>
 

@@ -51,6 +51,8 @@ class ListMenuFragment : Fragment() {
         adapter = MenuAdapter(list, requireActivity())
         adapter.notifyDataSetChanged()
 
+        showLoading(true)
+
 
         val SDK_INT = Build.VERSION.SDK_INT
         if (SDK_INT > 8) {
@@ -89,12 +91,21 @@ class ListMenuFragment : Fragment() {
                         rvListMenu.adapter = adapter
                         rvListMenu.setHasFixedSize(true)
                     }
+
+                    showLoading(false)
                 }
 
                 override fun onFailure(call: Call<JsonObject>, t: Throwable) {
                     Log.d("Failure", t.message.toString())
                 }
             })
+        }
+    }
+    private fun showLoading(state: Boolean) {
+        if (state) {
+            binding?.pbSearch?.visibility = View.VISIBLE
+        } else {
+            binding?.pbSearch?.visibility = View.GONE
         }
     }
 }
