@@ -74,7 +74,7 @@ class LoginPegawaiActivity : AppCompatActivity(), View.OnClickListener {
                         startActivity(home)
                         finish()
                     } else {
-                        Log.d("login token", response.body()?.token.toString())
+                        Log.d("login token false", response.body()?.token.toString())
                         Toast.makeText(this@LoginPegawaiActivity, "User Name / Password Salah", Toast.LENGTH_SHORT).show()
                         showLoading(false)
                     }

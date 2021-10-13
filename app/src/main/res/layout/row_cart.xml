@@ -54,7 +54,7 @@
             android:textColor="@android:color/black"
             android:textSize="12sp"
             android:gravity="center"
-            android:layout_weight="0.2"
+            android:layout_weight="0.3"
             tools:text="Total" />
         <TextView
             android:id="@+id/tvGTotal"
@@ -63,22 +63,20 @@
             android:textColor="@android:color/black"
             android:textSize="12sp"
             android:layout_weight="0.3"
-            android:gravity="center"
+            android:gravity="start"
             tools:text="gTotal" />
 
-
-
-        <ImageButton
-            android:id="@+id/ivDelete"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:contentDescription="image"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
-            android:scaleType="center"
-            android:gravity="right"
-            android:layout_weight="0.2"
-            android:src="@android:drawable/ic_menu_delete"
-            />
+<!--        <ImageButton-->
+<!--            android:id="@+id/ivDelete"-->
+<!--            android:layout_width="30dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:contentDescription="image"-->
+<!--            android:foreground="?attr/selectableItemBackgroundBorderless"-->
+<!--            android:scaleType="center"-->
+<!--            android:gravity="right"-->
+<!--            android:layout_weight="0.2"-->
+<!--            android:src="@android:drawable/ic_menu_delete"-->
+<!--            />-->
     </LinearLayout>
 
     <View
