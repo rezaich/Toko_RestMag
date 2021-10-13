@@ -107,7 +107,6 @@ class OrderActivity : AppCompatActivity() {
 //            it.putExtra("ORDER_DAYTIME", daytime)
 //        }
 
-
         if(qty == 0){
             return Toast.makeText(this, "Jumlah beli masih kosong", Toast.LENGTH_SHORT).show()
         }else{
@@ -145,9 +144,7 @@ class OrderActivity : AppCompatActivity() {
                         Log.d("log order", response.body().toString()+token)
                     }
                 }
-
             })
-
             // di pindahin ke transaction
         }
     }

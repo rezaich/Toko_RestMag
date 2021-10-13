@@ -11,7 +11,11 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="10dp">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/palet_container2"/>
         <TableRow>
             <TextView
                 android:gravity="center"
@@ -47,12 +51,12 @@
                 android:layout_weight="0.3"
                 android:textStyle="bold"
                 android:text="TOTAL"/>
-            <TextView
-                android:gravity="center"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:layout_weight="0.1"
-                android:text="HAPUS"/>
+<!--            <TextView-->
+<!--                android:gravity="center"-->
+<!--                android:textSize="12sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:layout_weight="0.1"-->
+<!--                android:text="HAPUS"/>-->
         </TableRow>
         <TableRow>
             <androidx.recyclerview.widget.RecyclerView
@@ -66,6 +70,10 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@android:color/darker_gray"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/palet_container2"/>
         <TableRow
             android:weightSum="1">
 
@@ -73,22 +81,29 @@
                 android:layout_width="195dp"
                 android:layout_span="3"
                 android:layout_weight="0.2"
-                android:text="Total" />
+                android:text="Total"
+                android:textColor="@color/red"/>
 
             <TextView
                 android:id="@+id/tvTotalProduct"
                 android:layout_width="wrap_content"
-                android:layout_weight="0.1"
-                android:gravity="right"
-                android:text="2" />
+                android:layout_weight="0.2"
+                android:gravity="center"
+                android:text="2"
+                android:textColor="@color/red"/>
             <TextView
                 android:text=""/>
             <TextView
                 android:id="@+id/tvTotalHarga"
                 android:layout_weight="0.1"
                 android:gravity="right"
-                android:text="20000"/>
+                android:text="20000"
+                android:textColor="@color/red"/>
         </TableRow>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/palet_container2"/>
     </TableLayout>
     <Button
         android:id="@+id/btn_checkout"
