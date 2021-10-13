@@ -15,8 +15,8 @@ class OpeningActivity : AppCompatActivity() {
         binding = ActivityOpeningBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val actionBar : ActionBar? = supportActionBar
-        actionBar!!.setDisplayShowHomeEnabled(true)
-        actionBar!!.title = ""
+//        actionBar!!.setDisplayShowHomeEnabled(true)
+//        actionBar!!.title = ""
 
         binding.loginAsAdmin.setOnClickListener {
             Intent(this, LoginActivity::class.java).also {
