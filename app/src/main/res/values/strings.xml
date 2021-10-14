@@ -15,4 +15,7 @@
     <string name="profile">PROFILE</string>
     <string name="create_profile">Create Profile</string>
     <string name="crate">Create</string>
+    <string name="total">Total</string>
+    <string name="date">Date</string>
+    <string name="time">time</string>
 </resources>

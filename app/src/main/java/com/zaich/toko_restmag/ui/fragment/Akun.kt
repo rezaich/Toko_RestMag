@@ -84,7 +84,6 @@ class Akun : Fragment() {
                         Log.d("Akun","isi akun")
                         val myJson = response.body()
                         val myData = myJson!!.getAsJsonArray("user")
-                        val arrayItem = ArrayList<UserProfile>()
                         for (i in 0 until myData.size()){
                             var myRecord = myData.get(i).asJsonObject
                             var name = myRecord.get("name").asString
@@ -92,7 +91,6 @@ class Akun : Fragment() {
                             var phone = myRecord.get("phone").asString
 
                             Log.d("Log "+i.toString(), myData.get(i).toString())
-//                            arrayItem.add(UserProfile(name, address,phone,))
                             binding?.tvName?.text = name
                             binding?.tvAddress?.text = address
                             binding?.tvPhone?.text = phone
@@ -110,7 +108,6 @@ class Akun : Fragment() {
                     }
 
                 })
-
             }
         }
         binding?.btnLogout?.setOnClickListener {

@@ -12,15 +12,17 @@
         android:id="@+id/loginAsAdmin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/redDark"
         android:text="Login As ADmin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginAsEmployee"
-        app:layout_constraintVertical_bias="0.355" />
+        app:layout_constraintVertical_bias="0.236" />
 
     <Button
+        android:backgroundTint="@color/redDark"
         android:id="@+id/loginAsEmployee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,5 +43,5 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:src="@drawable/ic_baseline_table_restaurant_24" />
 </androidx.constraintlayout.widget.ConstraintLayout>

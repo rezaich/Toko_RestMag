@@ -15,67 +15,83 @@ import retrofit2.http.*
 
 interface ApiInterface {
     @POST("register")
-    fun addUser(@Body newUserModel: UserModel) : Call<UserModel>
+    fun addUser(@Body newUserModel: UserModel): Call<UserModel>
 
     @FormUrlEncoded
     @POST("login")
-    fun login(@Field("user_name")user_name:String,
-              @Field("password")password:String
-    ):Call<LoginResponse>
+    fun login(
+        @Field("user_name") user_name: String,
+        @Field("password") password: String
+    ): Call<LoginResponse>
 
     @POST("logout")
-    fun logout(@Header("Authorization")authHeader: String): Call<JsonObject>
+    fun logout(@Header("Authorization") authHeader: String): Call<JsonObject>
 
     @POST("registers")
-    fun createUser(@Header("Authorization")authHeader: String,
-                   @Body createPegawaiModel : PegawaiModel
-    ):Call<PegawaiModel>
+    fun createUser(
+        @Header("Authorization") authHeader: String,
+        @Body createPegawaiModel: PegawaiModel
+    ): Call<PegawaiModel>
 
     @POST("products/store")
-    fun storeProduct(@Header("Authorization")authHeader: String,
-                   @Body createMenu : MenuModel
-    ):Call<MenuModel>
+    fun storeProduct(
+        @Header("Authorization") authHeader: String,
+        @Body createMenu: MenuModel
+    ): Call<MenuModel>
 
     @GET("products")
-    fun showProduct(@Header("Authorization")authHeader: String):Call<JsonObject>
+    fun showProduct(@Header("Authorization") authHeader: String): Call<JsonObject>
 
     @POST("update")
-    fun storeUser(@Header("Authorization")authHeader: String,
-    @Body CreateDetailUser : DetailUserModel ) : Call<LogoutResponse>
+    fun storeUser(
+        @Header("Authorization") authHeader: String,
+        @Body CreateDetailUser: DetailUserModel
+    ): Call<LogoutResponse>
 
     @GET("users")
-    fun showUsers(@Header("Authorization")authHeader: String):Call<JsonObject>
+    fun showUsers(@Header("Authorization") authHeader: String): Call<JsonObject>
 
     @GET("show")
-    fun showDetail(@Header("Authorization")authHeader: String):Call<JsonObject>
+    fun showDetail(@Header("Authorization") authHeader: String): Call<JsonObject>
+
+    @GET("transactions")
+    fun getTransaction(@Header("Authorization") authHeader: String): Call<JsonObject>
 
     /** API PEMSESANAN*/
     @GET("category")
-    fun getCategories(@Header("Authorization") authHeader:String)
+    fun getCategories(@Header("Authorization") authHeader: String)
             : Call<JsonObject>
 
     @FormUrlEncoded
     @POST("carts")
-    fun addProductToCart(@Header("Authorization") authHeader: String,
-                         @Field("product_id") productId: Int,
-                         @Field("price") price: Int,
-                         @Field("quantity") quantity: Int,
-                         @Field("daydate") daydate: String,
-                         @Field("daytime") daytime: String) : Call<DefaultResponse>
+    fun addProductToCart(
+        @Header("Authorization") authHeader: String,
+        @Field("product_id") productId: Int,
+        @Field("price") price: Int,
+        @Field("quantity") quantity: Int,
+        @Field("daydate") daydate: String,
+        @Field("daytime") daytime: String
+    ): Call<DefaultResponse>
+
     @FormUrlEncoded
     @POST("transactions")
-    fun addTransaction(@Header("Authorization") authHeader: String,
-                       @Field("product_id") productId: Int,
-                       @Field("name") name: String?,
-                       @Field("price") price: Int,
-                       @Field("quantity") quantity: Int,
-                       @Field("daydate") daydate: String?,
-                       @Field("daytime") daytime: String?) : Call<DefaultResponse>
+    fun addTransaction(
+        @Header("Authorization") authHeader: String,
+        @Field("product_id") productId: Int,
+        @Field("name") name: String?,
+        @Field("price") price: Int,
+        @Field("quantity") quantity: Int,
+        @Field("daydate") daydate: String?,
+        @Field("daytime") daytime: String?
+    ): Call<DefaultResponse>
 
     @GET("products/searchByCategory/{categoryId}")
-    fun getProductsByCategory(@Header("Authorization") authHeader:String,
-                              @Path("categoryId") id: Int): Call<JsonObject>
+    fun getProductsByCategory(
+        @Header("Authorization") authHeader: String,
+        @Path("categoryId") id: Int
+    ): Call<JsonObject>
 
     @GET("carts/showByUser")
     fun getCartsByUser(@Header("Authorization") authHeader: String): Call<JsonObject>
+
 }
