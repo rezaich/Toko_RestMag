@@ -7,5 +7,5 @@
 
     <item android:id="@+id/menu_management"
         android:icon="@drawable/ic_menu"
-        android:title="Menu"/>
+        android:title="Menu Management"/>
 </menu>
