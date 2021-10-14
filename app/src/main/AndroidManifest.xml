@@ -16,6 +16,14 @@
         android:theme="@style/Theme.Toko_RestMag"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".pegawai.activity.SendActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pegawai.activity.sendActivity"
+            android:exported="false"
+            android:label="@string/title_activity_send"
+            android:theme="@style/Theme.Toko_RestMag.NoActionBar" />
+        <activity
             android:name=".OpeningActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar">
@@ -33,10 +41,8 @@
             android:exported="true" />
         <activity android:name=".ui.activity.UserActivity" />
         <activity android:name=".ui.activity.RegisterActivity" />
-        <activity android:name=".ui.activity.LoginActivity"/>
-        <activity android:name=".ui.activity.MainActivity" />
-
-<!--        Activity pegawai-->
+        <activity android:name=".ui.activity.LoginActivity" />
+        <activity android:name=".ui.activity.MainActivity" /> <!-- Activity pegawai -->
         <activity
             android:name=".pegawai.activity.CartActivity"
             android:exported="false" />
@@ -46,8 +52,8 @@
         <activity
             android:name=".pegawai.activity.CategoryActivity"
             android:exported="false" />
-        <activity android:name=".pegawai.activity.LoginPegawaiActivity"/>
-        <activity android:name=".pegawai.activity.ProductActivity"/>
+        <activity android:name=".pegawai.activity.LoginPegawaiActivity" />
+        <activity android:name=".pegawai.activity.ProductActivity" />
     </application>
 
 </manifest>

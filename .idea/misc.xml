@@ -3,8 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Android Studio Project/Kotlin/Github/MyGithub/Toko_RestMag/app/src/main/res/layout/activity_cart.xml" value="0.1" />
+        <entry key="..\:/Android Studio Project/Kotlin/Github/MyGithub/Toko_RestMag/app/src/main/res/layout/activity_cart.xml" value="0.25" />
         <entry key="..\:/Android Studio Project/Kotlin/Github/MyGithub/Toko_RestMag/app/src/main/res/layout/activity_order.xml" value="0.1" />
+        <entry key="..\:/Android Studio Project/Kotlin/Github/MyGithub/Toko_RestMag/app/src/main/res/layout/activity_send.xml" value="0.4342105263157895" />
+        <entry key="..\:/Android Studio Project/Kotlin/Github/MyGithub/Toko_RestMag/app/src/main/res/layout/content_send.xml" value="0.209375" />
+        <entry key="..\:/Android Studio Project/Kotlin/Github/MyGithub/Toko_RestMag/app/src/main/res/layout/fragment_first.xml" value="0.209375" />
+        <entry key="..\:/Android Studio Project/Kotlin/Github/MyGithub/Toko_RestMag/app/src/main/res/layout/fragment_second.xml" value="0.209375" />
         <entry key="..\:/BBPLK BEKASI/MOBILE APP/tugas akhir/TUgas akhir/app/src/main/res/layout/activity_create_profile.xml" value="0.11567164179104478" />
         <entry key="..\:/BBPLK BEKASI/MOBILE APP/tugas akhir/TUgas akhir/app/src/main/res/layout/activity_login.xml" value="0.1619047619047619" />
         <entry key="..\:/BBPLK BEKASI/MOBILE APP/tugas akhir/TUgas akhir/app/src/main/res/layout/activity_main.xml" value="0.19479166666666667" />

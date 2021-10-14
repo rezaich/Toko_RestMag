@@ -92,10 +92,6 @@ class CartActivity : AppCompatActivity() {
 
                         Log.d("Log " + i.toString(), myData.get(i).toString())
                         cartList.add(CartModel(nmProduct, price, quantity, daydate, daytime))
-//                        val cartlModel = StrukModel(nmProduct, price, quantity, daydate, daytime)
-//                        Intent(this@CartActivity, StrukActivity::class.java).also {
-//                            it.putExtra("EXTRA_STRUK", cartlModel)
-//                        }
                     }
                     Log.d("Array Item", cartList.toString())
                     myAdapter!!.setData(cartList)
@@ -115,10 +111,21 @@ class CartActivity : AppCompatActivity() {
 
                     val calendar = Calendar.getInstance()
                     val currentDate: Date = Calendar.getInstance().time
-                    val currentDaydate = DateFormat.getDateInstance(DateFormat.FULL).format(currentDate)
+                    val currentDaydate =
+                        DateFormat.getDateInstance(DateFormat.FULL).format(currentDate)
                     val currentTime = SimpleDateFormat("HH:mm:ss").format(calendar.time)
                     binding.daydate.text = currentDaydate
                     binding.daytime.text = currentTime
+
+//                    Intent(this@CartActivity, SendActivity::class.java).also {
+//                        val total = binding.tvTotalHarga.text
+//                        val date = binding.daydate.text
+//                        val time = binding.daytime.text
+//                        it.putExtra("CART_TOTAL", total)
+//                        it.putExtra("CART_DATE", date)
+//                        it.putExtra("CART_TIME", time)
+//                        startActivity(it)
+//                    }
 
                 }
             })
@@ -129,23 +136,27 @@ class CartActivity : AppCompatActivity() {
 //            }
     }
 
-    private fun addTransactions(){
+    private fun addTransactions() {
         sharedPref = getSharedPreferences("SharePref", Context.MODE_PRIVATE)
 
-        val token = sharedPref.getString("token","")!!
-        val total = binding.tvTotalHarga.toString().toInt()
+        val token = sharedPref.getString("token", "")!!
+        val total = binding.tvTotalHarga.text.toString().toInt()
         val daydate = binding.daydate.text.toString()
         val daytime = binding.daytime.text.toString()
+
+        Log.d("Log cart", total.toString())
 
         val apiInterface: ApiInterface = ApiClient()
             .getApiClient()!!
             .create(ApiInterface::class.java)
         val requestCall: Call<DefaultResponse> = apiInterface
             .addTransaction("Bearer $token", total, daydate, daytime)
-        requestCall.enqueue(object : Callback<DefaultResponse>{
+        requestCall.enqueue(object : Callback<DefaultResponse> {
             override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
-                Toast.makeText(baseContext, "Data gagal ditambahkan ke transaction ",
-                    Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    baseContext, "Data gagal ditambahkan",
+                    Toast.LENGTH_SHORT
+                ).show()
                 Log.d("log transactions fail", t.toString())
             }
 
@@ -154,20 +165,26 @@ class CartActivity : AppCompatActivity() {
                 response: Response<DefaultResponse>
             ) {
                 Log.d("log transactions", response.toString())
-                if(response.isSuccessful){
-                    Toast.makeText(this@CartActivity,
+                if (response.isSuccessful) {
+                    Toast.makeText(
+                        this@CartActivity,
                         "Data berhasil ditambahkan ke transaction",
-                        Toast.LENGTH_SHORT).show()
+                        Toast.LENGTH_SHORT
+                    ).show()
                     Log.d("log transactions", response.body()?.success.toString())
                     Log.d("Log transactions", response.body()?.message.toString())
-                    val intent = Intent(this@CartActivity,
-                        CategoryActivity::class.java)
+                    val intent = Intent(
+                        this@CartActivity,
+                        CartActivity::class.java
+                    )
                     startActivity(intent)
-                }else{
-                    Toast.makeText(this@CartActivity,
+                } else {
+                    Toast.makeText(
+                        this@CartActivity,
                         "Data gagal ditambahkan ke transaction ",
-                        Toast.LENGTH_SHORT).show()
-                    Log.d("log transactions", response.body().toString()+token)
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    Log.d("log transactions", response.body().toString() + token)
                 }
             }
 
@@ -182,8 +199,9 @@ class CartActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.send -> {
-                val intent = Intent(this, CartActivity::class.java)
-                startActivity(intent)
+                addTransactions()
+//                val intent = Intent(this, SendActivity::class.java)
+//                startActivity(intent)
             }
         }
         return super.onOptionsItemSelected(item)
