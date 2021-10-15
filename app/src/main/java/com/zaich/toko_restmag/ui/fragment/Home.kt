@@ -12,8 +12,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.github.mikephil.charting.data.BarData
-import com.github.mikephil.charting.data.BarDataSet
 import com.google.gson.JsonObject
 import com.zaich.toko_restmag.R
 import com.zaich.toko_restmag.databinding.FragmentHomeBinding

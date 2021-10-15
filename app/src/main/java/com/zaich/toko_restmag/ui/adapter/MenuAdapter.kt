@@ -4,7 +4,6 @@ import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.zaich.toko_restmag.model.MenuModel
 import com.zaich.toko_restmag.databinding.ItemMenuBinding
 import java.net.URL
