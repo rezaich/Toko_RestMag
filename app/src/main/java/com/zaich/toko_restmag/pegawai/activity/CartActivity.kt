@@ -9,17 +9,27 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.StrictMode
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.SearchView
+import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.JsonObject
+import com.zaich.toko_restmag.R
 import com.zaich.toko_restmag.databinding.ActivityCartBinding
 import com.zaich.toko_restmag.pegawai.adapter.CartAdapter
 import com.zaich.toko_restmag.pegawai.model.CartModel
+import com.zaich.toko_restmag.pegawai.model.DefaultResponse
 import com.zaich.toko_restmag.server.ApiClient
 import com.zaich.toko_restmag.server.ApiInterface
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class CartActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCartBinding
@@ -82,10 +92,6 @@ class CartActivity : AppCompatActivity() {
 
                         Log.d("Log " + i.toString(), myData.get(i).toString())
                         cartList.add(CartModel(nmProduct, price, quantity, daydate, daytime))
-//                        val cartlModel = StrukModel(nmProduct, price, quantity, daydate, daytime)
-//                        Intent(this@CartActivity, StrukActivity::class.java).also {
-//                            it.putExtra("EXTRA_STRUK", cartlModel)
-//                        }
                     }
                     Log.d("Array Item", cartList.toString())
                     myAdapter!!.setData(cartList)
@@ -103,9 +109,25 @@ class CartActivity : AppCompatActivity() {
                     binding.rvCart.layoutManager = LinearLayoutManager(this@CartActivity)
                     binding.rvCart.adapter = myAdapter
 
+                    val calendar = Calendar.getInstance()
+                    val currentDate: Date = Calendar.getInstance().time
+                    val currentDaydate =
+                        DateFormat.getDateInstance(DateFormat.FULL).format(currentDate)
+                    val currentTime = SimpleDateFormat("HH:mm:ss").format(calendar.time)
+                    binding.daydate.text = currentDaydate
+                    binding.daytime.text = currentTime
+
+//                    Intent(this@CartActivity, SendActivity::class.java).also {
+//                        val total = binding.tvTotalHarga.text
+//                        val date = binding.daydate.text
+//                        val time = binding.daytime.text
+//                        it.putExtra("CART_TOTAL", total)
+//                        it.putExtra("CART_DATE", date)
+//                        it.putExtra("CART_TIME", time)
+//                        startActivity(it)
+//                    }
+
                 }
-
-
             })
         }
 //        binding.btnCheckout.setOnClickListener {
@@ -114,9 +136,79 @@ class CartActivity : AppCompatActivity() {
 //            }
     }
 
+    private fun addTransactions() {
+        sharedPref = getSharedPreferences("SharePref", Context.MODE_PRIVATE)
+
+        val token = sharedPref.getString("token", "")!!
+        val total = binding.tvTotalHarga.text.toString().toInt()
+        val daydate = binding.daydate.text.toString()
+        val daytime = binding.daytime.text.toString()
+
+        Log.d("Log cart", total.toString())
+
+        val apiInterface: ApiInterface = ApiClient()
+            .getApiClient()!!
+            .create(ApiInterface::class.java)
+        val requestCall: Call<DefaultResponse> = apiInterface
+            .addTransaction("Bearer $token", total, daydate, daytime)
+        requestCall.enqueue(object : Callback<DefaultResponse> {
+            override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
+                Toast.makeText(
+                    baseContext, "Data gagal ditambahkan",
+                    Toast.LENGTH_SHORT
+                ).show()
+                Log.d("log transactions fail", t.toString())
+            }
+
+            override fun onResponse(
+                call: Call<DefaultResponse>,
+                response: Response<DefaultResponse>
+            ) {
+                Log.d("log transactions", response.toString())
+                if (response.isSuccessful) {
+                    Toast.makeText(
+                        this@CartActivity,
+                        "Data berhasil ditambahkan ke transaction",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    Log.d("log transactions", response.body()?.success.toString())
+                    Log.d("Log transactions", response.body()?.message.toString())
+                    val intent = Intent(
+                        this@CartActivity,
+                        CartActivity::class.java
+                    )
+                    startActivity(intent)
+                } else {
+                    Toast.makeText(
+                        this@CartActivity,
+                        "Data gagal ditambahkan ke transaction ",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    Log.d("log transactions", response.body().toString() + token)
+                }
+            }
+
+        })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_cart, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.send -> {
+                addTransactions()
+//                val intent = Intent(this, SendActivity::class.java)
+//                startActivity(intent)
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
     }
-
 }

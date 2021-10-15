@@ -7,17 +7,16 @@
     android:id="@+id/drawer"
     tools:context=".pegawai.activity.CategoryActivity">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@drawable/ic_launcher_background"
-        android:scaleType="fitXY"/>
+    <!--    <ImageView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="200dp"-->
+    <!--        android:background="@drawable/ic_launcher_background"-->
+    <!--        android:scaleType="fitXY"/>-->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/container"
-        android:background="@drawable/palet_container"
-        android:layout_marginTop="16dp">
+        android:background="@drawable/palet_container">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/product_recycleview"

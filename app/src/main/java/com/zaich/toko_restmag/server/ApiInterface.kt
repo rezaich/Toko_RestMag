@@ -75,15 +75,10 @@ interface ApiInterface {
 
     @FormUrlEncoded
     @POST("transactions")
-    fun addTransaction(
-        @Header("Authorization") authHeader: String,
-        @Field("product_id") productId: Int,
-        @Field("name") name: String?,
-        @Field("price") price: Int,
-        @Field("quantity") quantity: Int,
-        @Field("daydate") daydate: String?,
-        @Field("daytime") daytime: String?
-    ): Call<DefaultResponse>
+    fun addTransaction(@Header("Authorization") authHeader: String,
+                       @Field("total") total: Int,
+                       @Field("deposit_time") deposit_time: String?,
+                       @Field("deposit_date") deposit_date: String?) : Call<DefaultResponse>
 
     @GET("products/searchByCategory/{categoryId}")
     fun getProductsByCategory(
