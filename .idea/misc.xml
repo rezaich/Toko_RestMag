@@ -32,6 +32,7 @@
         <entry key="..\:/BBPLK BEKASI/MOBILE APP/tugas akhir/TUgas akhir/app/src/main/res/layout/layout_create_menu.xml" value="0.19479166666666667" />
         <entry key="..\:/BBPLK BEKASI/MOBILE APP/tugas akhir/TUgas akhir/app/src/main/res/layout/nav_bottom.xml" value="0.19479166666666667" />
         <entry key="..\:/BBPLK BEKASI/MOBILE APP/tugas akhir/TUgas akhir/app/src/main/res/menu/drawer_menu.xml" value="0.18125" />
+        <entry key="..\:/FILE REZA/BBPLK BEKASI 2021/tugas mobile app/Toko_RestMag_FULLSTACK/app/src/main/res/layout/activity_login.xml" value="0.27291666666666664" />
         <entry key="..\:/Project_Ariq_Andrean_MOBILEAPPLICATION/github/Toko_RestMag/app/src/main/res/drawable/btn_incr_bcr.xml" value="0.16296296296296298" />
         <entry key="..\:/Project_Ariq_Andrean_MOBILEAPPLICATION/github/Toko_RestMag/app/src/main/res/drawable/ic_baseline_send_24.xml" value="0.3828125" />
         <entry key="..\:/Project_Ariq_Andrean_MOBILEAPPLICATION/github/Toko_RestMag/app/src/main/res/drawable/ic_search.xml" value="0.16296296296296298" />
@@ -99,7 +100,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

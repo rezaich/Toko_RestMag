@@ -30,9 +30,10 @@ class LoginActivity : AppCompatActivity(),View.OnClickListener{
 
         binding.btnLogin.setOnClickListener(this)
 
-        binding.crAccount.setOnClickListener {
+        //btn register user
+/*        binding.crAccount.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
-        }
+        }*/
     }
 
     private fun showLoading(state: Boolean) {
